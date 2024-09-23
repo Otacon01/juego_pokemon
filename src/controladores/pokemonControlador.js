@@ -12,13 +12,13 @@ const registrarPokemon = async (req, res) => {
     });
 
     if (pokemonExistente) {
-      return res.status(400).json({ error: 'El pokemon ya existe' });
+      return res.status(400).json({ mensaje: "El pokemon ya existe",resultado:null });
     }
 
     const nuevoPokemon = await Pokemon.create({ nombre, tipo,poder });
-    res.status(201).json({ message:'Pokemon creado',nuevoPokemon});
+    res.status(201).json({ mensaje:"Pokemon creado",resultado:nuevoPokemon});
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ mensaje: error.message,resultado:null });
   }
 };
 
