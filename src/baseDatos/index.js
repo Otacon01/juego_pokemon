@@ -14,6 +14,7 @@ const sequelize = new Sequelize(
     dialect: process.env.DB_DIALECT
   }
 );
+
 const Usuario = usuarioModelo(sequelize, DataTypes);
 const Pokemon = pokemonModelo(sequelize, DataTypes);
 const Capturado = capturadoModelo(sequelize, DataTypes);

@@ -3,7 +3,7 @@ const Joi = require('joi');
 const { Usuario } = require('../baseDatos');
 
 const validadorRegistro = Joi.object({
-  cedula: Joi.string().required().min(3).max(15).messages({
+  cedula: Joi.string().min(3).max(15).required().messages({
       'string.base': 'La cédula debe ser un texto.',
       'string.empty': 'La cédula es obligatoria.',
       'string.min': 'La cédula debe tener al menos {#limit} caracteres.',
@@ -16,7 +16,7 @@ const validadorRegistro = Joi.object({
       'string.email': 'El email debe ser un correo electrónico válido.',
       'any.required': 'El email es un campo obligatorio.'
     }),
-  nombre: Joi.string().required().min(2).max(50).messages({
+  nombre: Joi.string().min(2).max(50).required().messages({
       'string.base': 'El nombre debe ser un texto.',
       'string.empty': 'El nombre es obligatorio.',
       'string.min': 'El nombre debe tener al menos {#limit} caracteres.',
